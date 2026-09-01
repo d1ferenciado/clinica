@@ -206,16 +206,31 @@ nav.main-nav{display:none;}
 @media(max-width:379px){.hdr-ctas{display:none;}}
 
 .menu-toggle{
-  display:flex;width:42px;height:42px;
-  align-items:center;justify-content:center;
-  background:none;border:1.5px solid var(--ld);
-  border-radius:10px;color:var(--cr50);flex-shrink:0;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1002;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+} 
 @media(min-width:960px){.menu-toggle{display:none;}}
 .menu-toggle svg {
   width: 24px;
   height: 24px;
+  stroke: currentColor;
+  display: block;
 }
+.menu-toggle.active,
+.menu-toggle.open {
+  transform: rotate(-90deg); /* Rotaciona 90° no sentido ANTI-HORÁRIO ao abrir */
+  color: #ffffff !important;  /* Força a cor branca para continuar 100% visível */
+  opacity: 1 !important;      /* Garante que não fique transparente */
+}
+
 
 /* ── MOBILE PANEL ───────────────────────── */
 .mobile-panel{
